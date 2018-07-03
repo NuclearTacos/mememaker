@@ -15,8 +15,13 @@ public class MemeDataSource {
 
     private Context mContext;
 
+    private MemeSQLiteHelper mMemeSQLiteHelper;
+
     public MemeDataSource(Context context) {
         mContext = context;
+        mMemeSQLiteHelper = new MemeSQLiteHelper(context);
+        SQLiteDatabase database = mMemeSQLiteHelper.getReadableDatabase();
+        database.close();
     }
 }
 
